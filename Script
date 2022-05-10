@@ -1,0 +1,4 @@
+wait(10)
+local message = "been permanently BANNED"
+
+game.Players.LocalPlayer:Kick(message)
