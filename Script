@@ -1,195 +1,70 @@
--- Gui to Lua
--- Version: 3.2
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Trident 🔱 Factory", "BloodTheme")
+    local Tab = Window:NewTab("Main")
+        local Section = Tab:NewSection("Main")
+        
+        
+                Section:NewButton("Anti AFK", "ButtonInfo", function()
 
--- Instances:
-
-local ScreenGui = Instance.new("ScreenGui")
-local LT2DupeGui = Instance.new("Frame")
-local Slot = Instance.new("TextBox")
-local Load = Instance.new("TextButton")
-local OpenBlood = Instance.new("TextButton")
-local OpenWoof = Instance.new("TextButton")
-local GoodGraphics = Instance.new("TextButton")
-local BuildTools = Instance.new("TextButton")
-local AlwaysDay = Instance.new("TextButton")
-local Label = Instance.new("TextLabel")
-local AntiAFK = Instance.new("TextButton")
-local ImageLabel = Instance.new("ImageLabel")
-
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-LT2DupeGui.Name = "LT2DupeGui"
-LT2DupeGui.Parent = ScreenGui
-LT2DupeGui.BackgroundColor3 = Color3.fromRGB(58, 29, 66)
-LT2DupeGui.BorderColor3 = Color3.fromRGB(255, 247, 8)
-LT2DupeGui.BorderSizePixel = 3
-LT2DupeGui.Position = UDim2.new(0.795297623, 0, 0.408534735, 0)
-LT2DupeGui.Size = UDim2.new(0, 220, 0, 123)
-LT2DupeGui.Active = true
-LT2DupeGui.Draggable = true
-
-Slot.Name = "Slot"
-Slot.Parent = LT2DupeGui
-Slot.BackgroundColor3 = Color3.fromRGB(255, 255, 17)
-Slot.Position = UDim2.new(0.712328792, 0, 0.484848499, 0)
-Slot.Size = UDim2.new(0, 58, 0, 15)
-Slot.Font = Enum.Font.SourceSans
-Slot.Text = ""
-Slot.TextColor3 = Color3.fromRGB(0, 0, 0)
-Slot.TextSize = 10.000
-
-Load.Name = "Load"
-Load.Parent = LT2DupeGui
-Load.BackgroundColor3 = Color3.fromRGB(255, 240, 20)
-Load.Position = UDim2.new(0.712328792, 0, 0.643939376, 0)
-Load.Size = UDim2.new(0, 58, 0, 15)
-Load.Font = Enum.Font.SourceSans
-Load.Text = "Load Slot"
-Load.TextColor3 = Color3.fromRGB(0, 0, 0)
-Load.TextSize = 14.000
-
-OpenBlood.Name = "Open Blood"
-OpenBlood.Parent = LT2DupeGui
-OpenBlood.BackgroundColor3 = Color3.fromRGB(251, 255, 0)
-OpenBlood.Position = UDim2.new(0.570776284, 0, 0.825757682, 0)
-OpenBlood.Size = UDim2.new(0, 89, 0, 12)
-OpenBlood.Font = Enum.Font.SourceSans
-OpenBlood.Text = "Open Blood"
-OpenBlood.TextColor3 = Color3.fromRGB(0, 0, 0)
-OpenBlood.TextSize = 14.000
-
-OpenWoof.Name = "Open Woof"
-OpenWoof.Parent = LT2DupeGui
-OpenWoof.BackgroundColor3 = Color3.fromRGB(255, 247, 8)
-OpenWoof.Position = UDim2.new(0.0319634676, 0, 0.825757325, 0)
-OpenWoof.Size = UDim2.new(0, 89, 0, 12)
-OpenWoof.Font = Enum.Font.SourceSans
-OpenWoof.Text = "Open Woof"
-OpenWoof.TextColor3 = Color3.fromRGB(0, 0, 0)
-OpenWoof.TextSize = 14.000
-
-GoodGraphics.Name = "Good Graphics"
-GoodGraphics.Parent = LT2DupeGui
-GoodGraphics.BackgroundColor3 = Color3.fromRGB(252, 255, 32)
-GoodGraphics.Position = UDim2.new(0.570776165, 0, 0.325757354, 0)
-GoodGraphics.Size = UDim2.new(0, 89, 0, 12)
-GoodGraphics.Font = Enum.Font.SourceSans
-GoodGraphics.Text = "Good Graphics"
-GoodGraphics.TextColor3 = Color3.fromRGB(0, 0, 0)
-GoodGraphics.TextSize = 14.000
-
-BuildTools.Name = "Build Tools"
-BuildTools.Parent = LT2DupeGui
-BuildTools.BackgroundColor3 = Color3.fromRGB(235, 255, 14)
-BuildTools.Position = UDim2.new(0.0319634676, 0, 0.325757384, 0)
-BuildTools.Size = UDim2.new(0, 89, 0, 12)
-BuildTools.Font = Enum.Font.SourceSans
-BuildTools.Text = "Build Tools"
-BuildTools.TextColor3 = Color3.fromRGB(0, 0, 0)
-BuildTools.TextSize = 14.000
-
-AlwaysDay.Name = "Always Day"
-AlwaysDay.Parent = LT2DupeGui
-AlwaysDay.BackgroundColor3 = Color3.fromRGB(235, 255, 10)
-AlwaysDay.Position = UDim2.new(0.570776224, 0, 0.174242422, 0)
-AlwaysDay.Size = UDim2.new(0, 89, 0, 12)
-AlwaysDay.Font = Enum.Font.SourceSans
-AlwaysDay.Text = "Always Day"
-AlwaysDay.TextColor3 = Color3.fromRGB(0, 0, 0)
-AlwaysDay.TextSize = 14.000
-
-Label.Name = "Label"
-Label.Parent = LT2DupeGui
-Label.BackgroundColor3 = Color3.fromRGB(252, 255, 19)
-Label.BorderColor3 = Color3.fromRGB(255, 255, 16)
-Label.Size = UDim2.new(0, 219, 0, 12)
-Label.Font = Enum.Font.FredokaOne
-Label.Text = "Smazt Exploits"
-Label.TextColor3 = Color3.fromRGB(0, 0, 0)
-Label.TextSize = 14.000
-
-AntiAFK.Name = "Anti AFK"
-AntiAFK.Parent = LT2DupeGui
-AntiAFK.BackgroundColor3 = Color3.fromRGB(235, 255, 14)
-AntiAFK.Position = UDim2.new(0.0319634676, 0, 0.171285838, 0)
-AntiAFK.Size = UDim2.new(0, 89, 0, 12)
-AntiAFK.Font = Enum.Font.SourceSans
-AntiAFK.Text = "Anti AFK"
-AntiAFK.TextColor3 = Color3.fromRGB(0, 0, 0)
-AntiAFK.TextSize = 14.000
-
-ImageLabel.Parent = LT2DupeGui
-ImageLabel.BackgroundColor3 = Color3.fromRGB(58, 29, 66)
-ImageLabel.BorderColor3 = Color3.fromRGB(58, 29, 66)
-ImageLabel.Position = UDim2.new(0.445454538, 0, 0.170731783, 0)
-ImageLabel.Size = UDim2.new(0, 24, 0, 24)
-ImageLabel.Image = "rbxassetid://9585867571"
-
--- Scripts:
-
-local function IPDCKZ_fake_script() -- OpenBlood.LocalScript 
-	local script = Instance.new('LocalScript', OpenBlood)
-
-	script.Parent.MouseButton1Click:Connect(function()
-getgenv().Blood = "cc6ebb02679f"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/matrixoddy/blood/main/v17.19FREEdoNOTbuy2"))("Frosty is a retard LMAO")
+	local vu = game:GetService("VirtualUser")
+	print("Good!")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 	end)
-end
-coroutine.wrap(IPDCKZ_fake_script)()
-local function VCOE_fake_script() -- OpenWoof.LocalScript 
-	local script = Instance.new('LocalScript', OpenWoof)
+end) 
 
-	script.Parent.MouseButton1Click:Connect(function()
-local requestData = syn.request({Url="https://ataias.xyz/api/woof-loader/d4d86a1bd227/95b5f1cfc926be7e3a2236a1/beta", Method="GET"})
-repeat until requestData.StatusCode == 200
-pcall(function() loadstring(requestData.Body)() end)
+
+        Section:NewButton("Always Day", "ButtonInfo", function()
+	game.Lighting.Changed:Connect(function()
+	game.Lighting.TimeOfDay = "12:00"
+	game.Lighting.Ambient = Color3.fromRGB(255,255,255)
+	game.Lighting.Brightness = .5
+	game.Lighting.FogEnd = 50000
 	end)
-	
-end
-coroutine.wrap(VCOE_fake_script)()
-local function DMKCFG_fake_script() -- BuildTools.LocalScript 
-	local script = Instance.new('LocalScript', BuildTools)
+end)
 
-	script.Parent.MouseButton1Click:Connect(function()
-		for i,v in pairs(game.ReplicatedStorage.Purchasables.Structures.BlueprintStructures:GetChildren()) do
-			local clone = v:Clone()
-			clone.Parent = game.Players.LocalPlayer.PlayerBlueprints.Blueprints
+
+Section:NewButton("Build Tools", "ButtonInfo", function()
+for i,v in pairs(game:GetService("ReplicatedStorage").Purchasables.Structures.BlueprintStructures:GetChildren()) do
+		if v.ClassName == "Folder" then
+			local Blueprint = v:Clone()
+			Blueprint.Parent = game:GetService("Players").LocalPlayer.PlayerBlueprints.Blueprints
 		end
+	end
 	local PlayerService = game:GetService("Players")
 	local LocalPlayer = PlayerService.LocalPlayer
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	
+
 	local BlueprintRestoreTool = Instance.new("Tool", LocalPlayer.Backpack)
 	BlueprintRestoreTool.Name = "Restore\n Blueprint"
 	BlueprintRestoreTool.CanBeDropped = false
 	BlueprintRestoreTool.RequiresHandle = false
-	
+
 	local SelectedStructure = nil
 	BlueprintRestoreToolEquipped = BlueprintRestoreTool.Equipped:Connect(function()
 		local Mouse = LocalPlayer:GetMouse()
-	
+
 		BlueprintRestore = Mouse.Button1Down:Connect(function(key)
-	
+
 			local target = Mouse.Target
 			if (target == nil) then
 				return
 			end
-	
+
 			local Parent = target.Parent
 			local Type = Parent:FindFirstChild("Type")
-	
+
 			if (Type ~= nil and Type.Value == "Structure" or Type.Value == "Furniture") then
 				SelectedStructure = Parent
-	
+
 				local ItemName = SelectedStructure:FindFirstChild("ItemName")
 				local MainCFrame = SelectedStructure:FindFirstChild("MainCFrame")
 				if (ItemName ~= nil and MainCFrame ~= nil) then
 					local BlueprintType = ItemName.Value
 					local Position = MainCFrame.Value
-	
+
 					if (BlueprintType ~= nil and Position ~= nil) then
 						ReplicatedStorage.PlaceStructure.ClientPlacedBlueprint:FireServer(BlueprintType, Position, nil, SelectedStructure)
 					end
@@ -197,109 +72,435 @@ local function DMKCFG_fake_script() -- BuildTools.LocalScript
 			end
 		end)
 	end)
-	
-	BlueprintRestoreToolUnequipped = BlueprintRestoreTool.Unequipped:Connect(function()
-		BlueprintRestoreTool:Deactivate()
-		BlueprintRestore:Disconnect()
-	end)
-		_G.shdaki = true
-		while _G.shdaki == true do
-			wait(1)
-	
-			spawn(function()
-				for i,v in pairs(game:GetService("Workspace").PlayerModels:GetDescendants()) do
-					if v.Name == "ProgressBillboard" then
-						v:Destroy()
-					end
-				end
-			end)
-		end
-	end)
-end
-coroutine.wrap(DMKCFG_fake_script)()
-local function CZSB_fake_script() -- AlwaysDay.LocalScript 
-	local script = Instance.new('LocalScript', AlwaysDay)
+end)
+        
+        
+            local Tab = Window:NewTab("Dupe")
+        local Section = Tab:NewSection("Dupe")
+        
+        
+        	-- // Exploit Check
+	if not getsenv or not checkcaller or not hookmetamethod or not debug or not debug.setupvalue or not debug.getupvalue then
+		return game:GetService("Players").LocalPlayer:Kick("Exploit not supported.")
+	end
 
-	script.Parent.MouseButton1Click:Connect(function()
-		game.Lighting.Changed:Connect(function()
-		game.Lighting.TimeOfDay = "12:00"
-		game.Lighting.Ambient = Color3.fromRGB(255,255,255)
-		game.Lighting.Brightness = .5
-		game.Lighting.FogEnd = 50000
-		end)
-		end)
-end
-coroutine.wrap(CZSB_fake_script)()
-local function NLTC_fake_script() -- AntiAFK.LocalScript 
-	local script = Instance.new('LocalScript', AntiAFK)
+	if oldHooks then
+		local nc, ni = clonefunction(oldHooks.namecall), clonefunction(oldHooks.newindex)
+		hookmetamethod(game, "__namecall", function(...) return nc(...) end)
+		hookmetamethod(game, "__newindex", function(...) return ni(...) end)
+		getgenv().oldHooks = nil
+	end
 
-	script.Parent.MouseButton1Click:Connect(function()
-		local vu = game:GetService("VirtualUser")
-		print("Good!")
-		game:GetService("Players").LocalPlayer.Idled:connect(function()
-			vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-			wait(1)
-			vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-		end)
+	-- // Variables
+	local flags = {
+		ws = 16,
+		jp = 50,
+		dupeInventory = false,
+		dupePickup = false,
+		dupeMode = false,
+		dupeMoney = false,
+		dupeSlot = 1
+	}
+
+	local UI, dupeModeToggle
+	local gs = function(service) return game:GetService(service) end
+	local players = gs("Players")
+	local client = players.LocalPlayer
+	local connections = {}
+
+	connections[1] = client.CharacterAdded:Connect(function(character)
+		character:WaitForChild("HumanoidRootPart")
+		character.Humanoid.JumpPower = flags.jp
+		character.Humanoid.WalkSpeed = flags.ws
 	end)
-end
-coroutine.wrap(NLTC_fake_script)()
 
---Functions
-local function CheckIfSlotAvailable(Slot)
-	for a,b in pairs(game.ReplicatedStorage.LoadSaveRequests.GetMetaData:InvokeServer(game.Players.LocalPlayer)) do 
-		if a == Slot then 
-			for c,d in pairs(b) do 
-				if c == "NumSaves" and d ~= 0 then 
-					return true
-				else
-					return false
-				end
-			end
+	-- // Remote Grabber
+	local remotes = {
+		events = {},
+		functions = {}
+	}
+
+	local gameDescendants = game:GetDescendants()
+	for i=1, #gameDescendants do
+		local v = gameDescendants[i]
+		local dir = (v.ClassName == "RemoteEvent" and "events" or v.ClassName == "RemoteFunction" and "functions")
+		if dir then 
+			remotes[dir][v.Name] = v 
 		end
 	end
-end
 
-local function CheckSlotNumber() --Checks if the slot number is right
-	if Slot.Text == "1" or Slot.Text == "2" or Slot.Text == "3" or Slot.Text == "4" or Slot.Text == "5" or Slot.Text == "6" then
-		local SlotNumber = tonumber(Slot.Text)
-		return SlotNumber
-	else return false
-	end
-end
+	-- // Functions
 
-
-
-Load.MouseButton1Down:connect(function() --Loads the slot you want
-	ScriptLoadOrSave = true
-	local CheckSlot = CheckSlotNumber()
-	if CheckSlot ~= false then
-		if CheckIfSlotAvailable(CheckSlot) == true then
-			local LoadSlot = game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(CheckSlot)
-			if LoadSlot == false then
-				SendNotification("Cooldown Notification", "You aren't abled to load now", 1)
-			end
-			if LoadSlot == true then 
-				SendNotification("Reload Notification", "Loaded Your Slot", 2)
-				CurrentSlot = CheckSlot
-			end
-		else
-			SendNotification("Slot not Available", "This Slot is not Available, please choose another slot", 2)
+	-- [[ Using numerical loops is quicker than regular table.foreach & iterating over pairs apparently, source: Ancestor ]] --
+	local table_foreach = function(table, callback)
+		for i=1,#table do
+			callback(i, table[i])
 		end
-	else
-		SendNotification("Incorrect Slot", "Enter a Valid number in the upper field", 1)
 	end
-	ScriptLoadOrSave = false
+
+	-- [[ Utilities ]] --
+	local getCFrame = function(part)
+		local part = part or (client.Character and client.Character.HumanoidRootPart)
+		if not part then return end
+		return part.CFrame
+	end
+
+	local getPosition = function(part)
+		return getCFrame(part).Position
+	end
+
+	local tp = function(pos)
+		local pos = pos or client:GetMouse().Hit + Vector3.new(0, client.Character.HumanoidRootPart.Size.Y, 0)
+		if typeof(pos) == "CFrame" then
+			client.Character:SetPrimaryPartCFrame(pos)
+		elseif typeof(pos) == "Vector3" then
+			client.Character:MoveTo(pos)
+		end
+	end
+
+	-- [[ Land Functions ]] --
+	local propertyPurchasingEnv = getsenv(client.PlayerGui.PropertyPurchasingGUI.PropertyPurchasingClient)
+	local oldPurchaseMode = propertyPurchasingEnv.enterPurchaseMode
+
+	local getProperty = function(firstPlot)
+		local properties = {}
+		table_foreach(gs("Workspace").Properties:GetChildren(), function(i, v)
+			if v:FindFirstChild("Owner") and v.Owner.Value == nil then
+				properties[#properties + 1] = v
+			end
+		end)
+		return properties[(firstPlot == true and 1) or (firstPlot == "donate" and #properties) or math.random(2, #properties)]
+	end
+
+	local getPlrProperty = function(plr)
+		local plr = plr or client
+		local plot
+		table_foreach(gs("Workspace").Properties:GetChildren(), function(i, v)
+			if v:FindFirstChild("Owner") and v.Owner.Value == plr then
+				plot = v
+			end
+		end)
+		return plot
+	end
+
+	local saveSlot = function()
+		if client.CurrentSaveSlot.Value == -1 then return end
+		return remotes.functions.RequestSave:InvokeServer(client.CurrentSaveSlot.Value, client)
+	end
+
+	local canLoad = function() 
+		return remotes.functions.ClientMayLoad:InvokeServer() 
+	end
+
+
+	-- [[ Fast Load ]] --
+	local loadSlot = function(slot, plot)
+		repeat wait() until canLoad()
+		propertyPurchasingEnv.enterPurchaseMode = function(...)
+			debug.setupvalue(propertyPurchasingEnv.rotate, 3, 69)
+			debug.setupvalue(oldPurchaseMode, 10, plot)
+			return
+		end
+		remotes.functions.RequestLoad:InvokeServer(slot, client)
+		propertyPurchasingEnv.enterPurchaseMode = oldPurchaseMode
+	end
+
+	-- [[ Free Land ]] --
+	local freeLand = function(donatingPlot)
+		if getPlrProperty() then
+			UI.Banner({
+				Text = "You already have a piece of land!"
+			})
+			return false
+		end
+
+		local property = getProperty(donatingPlot)
+		remotes.functions.SetPropertyPurchasingValue:InvokeServer(true)
+		remotes.events.ClientPurchasedProperty:FireServer(property, property.OriginSquare.Position)
+		remotes.functions.SetPropertyPurchasingValue:InvokeServer(false)
+		tp(property.OriginSquare.Position)
+		return true
+	end
+
+
+	-- [[ Donate Plot ]] --
+	local donatePlot = function(slotNum)
+		local slotNum = math.clamp(slotNum, 1, 6)
+		if getPlrProperty() then 
+			return UI.Banner({
+				Text = "Please unload your slot & try again."
+			})
+		end
+		task.delay(0.1, function()
+			freeLand(true)
+		end)
+		loadSlot(slotNum, getProperty("donate"))
+		UI.Banner({
+			Text = "Slot loaded, waiting for reload cooldown."
+		})
+		repeat wait(1) until canLoad()
+		UI.Banner({
+			Text = "Unloading slot, please wait."
+		})
+		remotes.functions.ClientSetListPlayer:InvokeServer(client.WhitelistFolder, client, true)
+		remotes.functions.RequestLoad:InvokeServer(-1)
+		UI.Banner({
+			Text = "Success! Whitelist your friend & tell them to load over top of your base."
+		})
+		remotes.functions.ClientSetListPlayer:InvokeServer(client.WhitelistFolder, client, false)
+	end
+        
+
+
+Section:NewSlider("Slot to dupe", "SliderInfo", 6, 1, function(value) -- 500 (MaxValue) | 0 (MinValue)
+    flags.dupeSlot = value
 end)
 
---Anti Overwrite Slot (Sub-Function)
-while wait(.15) do
-	if CurrentlySavingOrLoading.Value == true and ScriptLoadOrSave == false then
-		repeat 
-			wait(1)
-		until CurrentlySavingOrLoading.Value == false
-		wait(1)
-		CurrentSlot = game.Players.LocalPlayer.CurrentSaveSlot.Value
-		print(CurrentSlot)
-	end
+Section:NewButton("Donate Dupe", "ButtonInfo", function()
+    donatePlot(flags.dupeSlot)
+end)
+        
+        
+        
+        
+        
+        Section:NewToggle("Disable Slot Save", "True off save for your base", function(state)
+    if state then
+        
+        game.StarterGui:SetCore("SendNotification", {
+    Title = 'Slot Saveing Disable';
+    Text = "Your slot is not loaded in for the game";
+    Icon = "rbxassetid://7924662383";
+    Duration = 7;
+})
+wait()
+        getgenv().NoSave = true
+
+-- Save Source --
+
+local OldNamecall
+OldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
+        local args = {...}
+        local method = getnamecallmethod()
+
+        if tostring(self) == "RequestSave" and getnamecallmethod() == "InvokeServer" and getgenv().NoSave then
+            return wait()
+        end 
+
+return OldNamecall(self, ...)
+end)
+    else
+        game.StarterGui:SetCore("SendNotification", {
+    Title = 'Slot Saveing Enabled';
+    Text = "Your slot is back to normal";
+    Icon = "rbxassetid://7924662383";
+    Duration = 7;
+})
+
+        getgenv().NoSave = false
+    end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ local Tab = Window:NewTab("Player")
+    local Section = Tab:NewSection("Player")
+    
+    
+    Section:NewSlider("SliderText", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+while true do
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s --if you want, you can change 100 to a different number :p
+
+wait()
 end
+end)
+    
+    
+    Section:NewSlider("Jump Power", "Fucking weeee", 500, 50, function(s) 
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+Section:NewButton("InfiniteJump", "Jump Infinite", function()
+    InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+	    if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	    end
+    end)
+end)
+    
+    
+    
+    
+    
+    
+    Section:NewButton("Fly", "Press F to use", function()
+        
+      
+        
+        game.StarterGui:SetCore("SendNotification", {
+    Title = 'Fly';
+    Text = "Press F to Toggle fly";
+    Icon = "rbxassetid://7924662383";
+    Duration = 7;
+})
+        
+        
+        
+    repeat wait() 
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Torso") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
+local mouse = game.Players.LocalPlayer:GetMouse() 
+repeat wait() until mouse
+local plr = game.Players.LocalPlayer 
+local torso = plr.Character.Torso 
+local flying = false
+local deb = true 
+local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+local maxspeed = 50 
+local speed = 0
+
+function Fly() 
+local bg = Instance.new("BodyGyro", torso) 
+bg.P = 9e4 
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+bg.cframe = torso.CFrame 
+local bv = Instance.new("BodyVelocity", torso) 
+bv.velocity = Vector3.new(0,0,0) 
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+repeat wait() 
+plr.Character.Humanoid.PlatformStand = true 
+if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+speed = speed+.5+(speed/maxspeed) 
+if speed > maxspeed then 
+speed = maxspeed 
+end 
+elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
+speed = speed-1 
+if speed < 0 then 
+speed = 0 
+end 
+end 
+if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
+bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+else 
+bv.velocity = Vector3.new(0,0,0) 
+end 
+bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*1*speed/maxspeed),0,0) 
+until not flying 
+ctrl = {f = 0, b = 0, l = 0, r = 0} 
+lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+speed = 0 
+bg:Destroy() 
+bv:Destroy() 
+plr.Character.Humanoid.PlatformStand = false 
+end 
+mouse.KeyDown:connect(function(key) 
+if key:lower() == "f" then 
+if flying then flying = false 
+else 
+flying = true 
+Fly() 
+end 
+elseif key:lower() == "w" then 
+ctrl.f = 10
+elseif key:lower() == "s" then 
+ctrl.b = -5 
+elseif key:lower() == "a" then 
+ctrl.l = -5
+elseif key:lower() == "d" then 
+ctrl.r = 5
+end 
+end) 
+mouse.KeyUp:connect(function(key) 
+if key:lower() == "w" then 
+ctrl.f = 0 
+elseif key:lower() == "s" then 
+ctrl.b = 0 
+elseif key:lower() == "a" then 
+ctrl.l = 0 
+elseif key:lower() == "d" then 
+ctrl.r = 0 
+end 
+end)
+Fly()
+end)
+
+
+
+Section:NewButton("Noclip", "ButtonInfo", function()
+    	local noclipplayer = game:GetService("Players").LocalPlayer
+	local noclipmouse = noclipplayer:GetMouse()
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Noclip';
+    Text = "Press V to toggle Noclip";
+    Icon = "rbxassetid://7924662383";
+    Duration = 7;
+})
+
+	local donoclip = false
+	local noclip = false
+
+	function b_noclip(key)
+		if (key == "v") then
+			if noclip == false then
+				donoclip = true
+
+				noclip = true
+			elseif noclip == true then
+				donoclip = false
+
+				noclip = false
+			end
+		end
+	end
+end)
+
+
+	noclipmouse.KeyDown:connect(b_noclip)
+
+	game:GetService("Players").LocalPlayer.Character.Head.Touched:connect(function(obj)
+		if obj ~= workspace.Terrain then
+			if donoclip == true then
+				obj.CanCollide = false
+			else
+				obj.CanCollide = true
+			end
+		end
+	end)
+
+
+
