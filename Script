@@ -1,0 +1,115 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("butter hub", "BloodTheme")
+    local Tab = Window:NewTab("AFK")
+        local Section = Tab:NewSection("AFK")
+
+local myPart = Instance.new ("Part")
+
+myPart.Transparency = 0
+myPart.Anchored = true
+myPart.Size = Vector3.new(2048,5,2048)
+myPart.Position = Vector3.new (1000,10000,1000)
+
+myPart.Parent = game.Workspace
+myPart.Color = Color3.fromRGB(255,0,0)
+wait()
+Section:NewToggle("AFK TP", "Teleports you far away so you don't die ", function(state)
+    if state then
+        
+    _G.AFKTP = true
+while _G.AFKTP == true do
+    wait()
+        plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+hum.CFrame = CFrame.new(1000, 10200, 1000)
+end
+    else
+    _G.AFKTP = false
+while _G.AFKTP == true do
+end
+    end
+end)
+
+Section:NewToggle("Auto click", "Clicks your Mouse automatically ", function(state)
+    if state then
+-- Auto Clicker
+local vu = game:GetService("VirtualUser")
+local uis = game:GetService("UserInputService")
+
+getgenv().Toggle = true
+
+getgenv().Config = {
+    delay = 0,
+    coords = Vector2.new(0,0),
+    key = Enum.KeyCode.N,
+}
+
+spawn(function()
+    while task.wait() do
+        if getgenv().Toggle == true then
+            vu:Button1Down(getgenv().Config.coords)
+            task.wait()
+            vu:Button1Up(getgenv().Config.coords)
+        end
+    end
+end)
+
+uis.InputBegan:Connect(function(Input)
+    if Input.KeyCode == getgenv().Config.key then
+        if getgenv().Toggle == true then
+            getgenv().Toggle = false
+        else
+            getgenv().Toggle = true
+        end
+    end
+end)
+    else
+getgenv().Toggle = false
+    end
+end)
+
+Section:NewToggle("Both dumbbells", "Uses both dumbbells for more strength", function(state)
+    if state then
+_G.Both = true
+while _G.Both == true do
+    wait()
+local toolname = "Dumbell" -- replace with the name of the tool
+local Plr = game:GetService("Players").LocalPlayer
+
+    pcall(function()
+        if Plr.Backpack:FindFirstChild(toolname) and Plr.Character:FindFirstChild(toolname) == nil then
+            local tool = Plr.Backpack:FindFirstChild(toolname)
+            Plr.Character.Humanoid:EquipTool(tool)
+        end
+    end)
+    wait()
+local toolname = "Double Weight" -- replace with the name of the tool
+local Plr = game:GetService("Players").LocalPlayer
+
+    pcall(function()
+        if Plr.Backpack:FindFirstChild(toolname) and Plr.Character:FindFirstChild(toolname) == nil then
+            local tool = Plr.Backpack:FindFirstChild(toolname)
+            Plr.Character.Humanoid:EquipTool(tool)
+        end
+    end)
+    end
+    else
+_G.Both = false
+while _G.Both == true do
+    end
+    end
+end)
+
+Section:NewButton("Anti AFK", "So you don't get kicked", function()
+repeat wait() until game:IsLoaded() 
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+end)
+
+    local Tab = Window:NewTab("Settings")
+        local Section = Tab:NewSection("Settings")
+        
+        Section:NewKeybind("Close GUI", "Gets rid of your GUI temporarily", Enum.KeyCode.LeftAlt, function()
+	Library:ToggleUI()
+end)
