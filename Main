@@ -1,1 +1,2 @@
-loadstring(game:HttpGet("https://bit.ly/3x90l99"))("TOADS")
+--loadstring(game:HttpGet("https://bit.ly/3x90l99"))("TOADS")
+print("Yep")
